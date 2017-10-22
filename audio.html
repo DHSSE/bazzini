@@ -1,0 +1,310 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<style>
+#audioplayer{
+    width: 480px;
+    height: auto;
+    margin: 50px auto auto auto;
+        
+  position:
+}
+#timeline{
+
+    width: 400px;
+    height: 20px;
+    margin-top: 8px;
+    float: right;
+    border-radius: 15px;
+    background: rgba(0,0,0,.3);
+  
+}
+#playhead{
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    margin-top: 1px;
+    background: rgba(0, 0, 0,1);
+
+}
+#playBtn {
+    height:60px; 
+    width: 60px;
+    border: none;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    float:left;
+    outline:none;
+
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEUAAABGCAYAAACaGVmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTExIDc5LjE1ODMyNSwgMjAxNS8wOS8xMC0wMToxMDoyMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QThERThENUFDNkJEMTFFNTk2RTBDMTRBMkYyNjVGMzQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QThERThENUJDNkJEMTFFNTk2RTBDMTRBMkYyNjVGMzQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBOERFOEQ1OEM2QkQxMUU1OTZFMEMxNEEyRjI2NUYzNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBOERFOEQ1OUM2QkQxMUU1OTZFMEMxNEEyRjI2NUYzNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PnFM7yIAAAFWSURBVHja7NRJDoMwDEDRcPL2ZoVeLEUtCyoCZPBsf8mS10+Wp5zzK6X0XGdJ0bdpRcnbPgfOESUFzjmKe5wrFLc4NSjucFpQ3OD0oJjHGUExiwOBYg4HEsUMDgaKehxMFLU4FCjqcChR1OBwoIjH4UQRiyMBRRyOJBQxOBJR2HEko7DhaEAhx9GEQoajEQUdRzMKGo4FFHAcSyhgOBZRhnEso3TjeEBpxvGEUo3jEeUWxzPKKU6gFHACpYATKMfegbLDWOcRl/Jr2X7JHI+2gOEZ5RTDI8othieUagwPKM0YllG6MSyiDGNYQgHDsIACjqEZBQ1DIwo6hiYUMgwNKOQYklHYMCSisGNIQhGDIQFFHAYnilgMDhTxGJQoajAoUNRhYKKoxcBAUY8BiWIGAwLFHMYIilmMHhTzGC0objBqUNxhXKG4xSihuMfYo8yB8d9HgAEATyefBJWpw70AAAAASUVORK5CYII=');
+  width: 69px;
+  height: 70px;
+  left: 50%;
+  margin: auto -34.5px;
+}
+#pauseBtn {
+    height:60px; 
+    width: 60px;
+    border: none;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    float:left;
+    outline:none;
+
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEUAAABGCAYAAACaGVmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTExIDc5LjE1ODMyNSwgMjAxNS8wOS8xMC0wMToxMDoyMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MDE4MjkzRjNDNzI0MTFFNTk2RTBDMTRBMkYyNjVGMzQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MDE4MjkzRjRDNzI0MTFFNTk2RTBDMTRBMkYyNjVGMzQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBOERFOEQ1Q0M2QkQxMUU1OTZFMEMxNEEyRjI2NUYzNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDowMTgyOTNGMkM3MjQxMUU1OTZFMEMxNEEyRjI2NUYzNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pne5d1AAAAB8SURBVHja7NCxCQAwAALBuP/QZoEUlinua0G4tD1j83Asv/4GChQoUKBAgQIFChQoUKBAgQIFChQoUKBAgQIFChQoUKBAgQIFChQoUKBAgQIFChQoUKBAgQIFChQoUKBAgQIFChQoUKBAgQIFChQoUKBAgQIFCpRXV4ABAOgpXYTDYwEwAAAAAElFTkSuQmCC');
+  width: 69px;
+  height: 70px;
+  left: 50%;
+  margin: auto -34.5px;
+  display: none;
+}
+.Click to mute{
+background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTExIDc5LjE1ODMyNSwgMjAxNS8wOS8xMC0wMToxMDoyMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MUVBQzMwNzBDNzI0MTFFNTk2RTBDMTRBMkYyNjVGMzQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MUVBQzMwNzFDNzI0MTFFNTk2RTBDMTRBMkYyNjVGMzQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxRUFDMzA2RUM3MjQxMUU1OTZFMEMxNEEyRjI2NUYzNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxRUFDMzA2RkM3MjQxMUU1OTZFMEMxNEEyRjI2NUYzNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PtAZ+FgAAAHRSURBVHja7FjRbYMwEIWqC7CCO4IzgjMCHYEV6AjuCHSEMAKMkIwAI5ARXFt9rox1phDA5KMnPSGwOZ4fx/mOVCmVPIu9JE9ke5GRGpejyeQanUapkXlj5lzEIMM1GqjRAyG1eNCLCeAVyDQq9WOdRoHrDeDP7YCM8reGiNQYQER6D6DIGHDc02xFJsfqjF00GDEnRCaBegp+RmMp8oyYERcmAAvMvWl8aLSBuQ2O58D4Ff7eqJiZa4MTF1OYUsZAwF9BKaOw0tsf6pjx+wwVXWU41Pwk1DF2opQRK7+skDIyECMlrv8GfoztwMaW9K7XTqKMujeZV8SQma31eO0iNpkW8L/a3t02Yu7aITL8CDL2S2VE/jqsnnHJ3I8urnpKldhkOEFmdB6TTO7kFveVRScjoExLqBWVTIbsax765RFh7n74GoFMiQefCLXcbWFEhs/MFfeFZGon9fsx1I78PVDPyA3qmXyqnhEzV1lgRT124/rBSq+Dj/Pa7sDUPVesrEGRvUSZMlQ/rSmgCqc7qBZ0B7aQ37RVsb2QJOIp1DcNUDXbg4wFw2qV06j5ZCqQYSE/yYZ1LxVPvjJ86v50p/8ztr96X3JT+v+zKGDfAgwAZkMcn0x+AsMAAAAASUVORK5CYII=');
+}</style>
+<body>
+<div class="container">
+<h1>Bazzini Quintet No. 1 (I)</h1>
+<audio id="violin1">
+    <source src="violin1_compressed.mp3" type="audio/mp3" />
+</audio>
+<audio id="violin2" >
+    <source src="violin2_compressed.mp3" type="audio/mp3" />
+</audio>
+<audio id="viola" >
+    <source src="viola_compressed.mp3" type="audio/mp3" />
+</audio>
+<audio id="cello1" >
+    <source src="cello1_compressed.mp3" type="audio/mp3" />
+</audio>
+<audio id="cello2" >
+    <source src="cello2_compressed.mp3" type="audio/mp3" />
+</audio>
+ <div id="audioplayer">
+ <button class="btn" onclick="play();" id="button1">Play</button>
+ <div id="timeline">    
+          <div id="playhead"></div><div id="timing"></div><div id="bar"></div>
+  </div>
+</div> 
+</br></br>
+<div class="container responsive">
+<div class="row"><div class="col3">Violin 1 </div><div class="col6"><button class="btn" onclick="mute(1);" id="button2">Click to mute</button><br /></div></div>
+<div class="row"><div class="col3">Violin 2 </div><div class="col6"><button class="btn" onclick="mute(2);" id="button3">Click to mute</button><br /></div></div>
+<div class="row"><div class="col3">   Viola    </div><div class="col6"><button class="btn" onclick="mute(3);" id="button4">Click to mute</button><br /></div></div>
+<div class="row"><div class="col3">Cello 1 </div><div class="col6"><button class="btn" onclick="mute(4);" id="button5">Click to mute</button><br /></div></div>
+<div class="row"><div class="col3">Cello 2 </div><div class="col6"><button class="btn" onclick="mute(5);" id="button6">Click to mute</button><br /></div></div>
+</div>
+<script>
+
+var violin1 = document.getElementById('violin1');
+var duration=violin1.duration;
+var violin2 = document.getElementById('violin2');
+var viola = document.getElementById('viola');
+var cello1 = document.getElementById('cello1');
+var cello2 = document.getElementById('cello2');
+var button1 = document.getElementById('button1');
+var button2 = document.getElementById('button2');
+var button3 = document.getElementById('button3');
+var button4 = document.getElementById('button4');
+var button5 = document.getElementById('button5');
+var button6 = document.getElementById('button6');
+var timing=document.getElementById('timing');
+var bar=document.getElementById("bar")
+var mute = function(a){
+  if(a == 1){
+  if (violin1.muted==true){
+      violin1.muted=false; button2.innerHTML ='Click to mute'}else{
+      violin1.muted = true;button2.innerHTML ='Click to unmute'}
+  }
+  if(a == 2){
+  if (violin2.muted==true){
+      violin2.muted=false; button3.innerHTML ='Click to mute'}else{
+      violin2.muted = true;button3.innerHTML ='Click to unmute'}
+  }
+    if(a == 3){
+  if (viola.muted==true){
+      viola.muted=false; button4.innerHTML ='Click to mute'}else{
+      viola.muted = true;button4.innerHTML ='Click to unmute'}
+  }
+    if(a == 4){
+  if (cello1.muted==true){
+      cello1.muted=false; button5.innerHTML ='Click to mute'}else{
+      cello1.muted = true;button5.innerHTML ='Click to unmute'}
+  }
+    if(a == 5){
+  if (cello2.muted==true){
+      cello2.muted = false;button6.innerHTML ='Click to mute'}else{
+      cello2.muted=true; button6.innerHTML ='Click to unmute'}
+  }
+}
+function EndofAudio() { 
+     document.getElementById("play_audio").value = "Play"; 
+     document.getElementById("audioSeekBar").value = 0; 
+     document.getElementById("timelapsed").innerHTML = "0/" + Math.round(audio.duration); 
+} 
+    function CreateSeekBar() { 
+     var seekbar = document.getElementById("audioSeekBar"); 
+     seekbar.min = 0; 
+     seekbar.max = violin1.duration; 
+     seekbar.value = 0; 
+     var timelapsed = document.getElementById("timelapsed"); 
+     timelapsed.innerHTML = "0/" + Math.round(audio.timelapsed) + "seconds"; 
+} 
+   // Allows you to seek audio on the range
+function audioSeekBar() { 
+     var seekbar = document.getElementById("audioSeekBar"); 
+     violin1.currentTime = seekbar.value; 
+     violin2.currentTime = seekbar.value; 
+     viola.currentTime = seekbar.value; 
+     cello1.currentTime = seekbar.value; 
+     cello2.currentTime = seekbar.value;      
+} 
+ 
+ 
+ 
+var duration = violin1.duration; // Duration of audio clip, calculated here for embedding purposes
+var playhead = document.getElementById('playhead'); // playhead
+var timeline = document.getElementById('timeline'); // timeline
+
+// timeline width adjusted for playhead
+var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
+
+// play button event listenter
+button1.addEventListener("click", play);
+
+// timeupdate event listener
+violin1.addEventListener("timeupdate", timeUpdate, false);
+
+// makes timeline clickable
+timeline.addEventListener("click", function(event) {
+    moveplayhead(event);
+    violin1.currentTime = duration * clickPercent(event);
+    violin2.currentTime = duration * clickPercent(event);
+    viola.currentTime = duration * clickPercent(event);
+    cello1.currentTime = duration * clickPercent(event);
+    cello2.currentTime = duration * clickPercent(event);
+}, false);
+
+// returns click as decimal (.77) of the total timelineWidth
+function clickPercent(event) {
+    return (event.clientX - getPosition(timeline)) / timelineWidth;
+}
+
+// makes playhead draggable
+playhead.addEventListener('mousedown', mouseDown, false);
+window.addEventListener('mouseup', mouseUp, false);
+
+// Boolean value so that audio position is updated only when the playhead is released
+var onplayhead = false;
+
+// mouseDown EventListener
+function mouseDown() {
+    onplayhead = true;
+    window.addEventListener('mousemove', moveplayhead, true);
+    violin1.removeEventListener('timeupdate', timeUpdate, false);
+}
+
+// mouseUp EventListener
+// getting input from all mouse clicks
+function mouseUp(event) {
+    if (onplayhead == true) {
+        moveplayhead(event);
+        window.removeEventListener('mousemove', moveplayhead, true);
+        // change current time
+        violin1.currentTime = duration * clickPercent(event);
+        violin1.addEventListener('timeupdate', timeUpdate, false);
+        violin2.currentTime = duration * clickPercent(event);
+        violin2.addEventListener('timeupdate', timeUpdate, false);
+        viola.currentTime = duration * clickPercent(event);
+        viola.addEventListener('timeupdate', timeUpdate, false);
+        cello1.currentTime = duration * clickPercent(event);
+        cello1.addEventListener('timeupdate', timeUpdate, false);
+        cello2.currentTime = duration * clickPercent(event);
+        cello2.addEventListener('timeupdate', timeUpdate, false);        
+    }
+    onplayhead = false;
+}
+// mousemove EventListener
+// Moves playhead as user drags
+function moveplayhead(event) {
+    var newMargLeft = event.clientX - getPosition(timeline);
+
+    if (newMargLeft >= 0 && newMargLeft <= timelineWidth) {
+        playhead.style.marginLeft = newMargLeft + "px";
+    }
+    if (newMargLeft < 0) {
+        playhead.style.marginLeft = "0px";
+    }
+    if (newMargLeft > timelineWidth) {
+        playhead.style.marginLeft = timelineWidth + "px";
+    }
+}
+
+// timeUpdate
+// Synchronizes playhead position with current point in audio
+function timeUpdate() {
+    var playPercent = timelineWidth * (violin1.currentTime / duration);
+    playhead.style.marginLeft = playPercent + "px";
+    if (violin1.currentTime == duration) {
+        button1.className = "";
+        button1.className = "play";
+    }
+    timing.innerHTML=secondsToHms(violin1.currentTime)+ " / "+ secondsToHms(duration);
+    var eachbar1=(187.1/140.25)
+    var eachbar=((duration-374.2)/(482-140))
+    if (violin1.currentTime<=187.1){bar.innerHTML="Bar "+Math.ceil((violin1.currentTime/eachbar1)-0.25)}
+    else if (violin1.currentTime<=374.2){bar.innerHTML="Bar "+Math.ceil((violin1.currentTime-187.1)/eachbar1-0.25)}
+    else {bar.innerHTML="Bar "+Math.ceil(((violin1.currentTime-374.2)/eachbar1))+141}
+}
+
+
+
+
+var isPlaying = false;
+var play = function() {
+    if(!isPlaying){
+      button1.innerHTML = 'Pause';
+
+      button1.className='pauseBtn btn';
+  	  violin1.play(); 
+	  violin2.play();
+	  viola.play();
+	  cello1.play();
+	  cello2.play();
+      isPlaying = true;
+    } else {
+      button1.innerHTML = 'Play';
+      button1.className='playBtn btn';
+  	  violin1.pause(); 
+	  violin2.pause();
+	  viola.pause();
+	  cello1.pause();
+	  cello2.pause();
+      isPlaying = false;
+    }
+}
+
+
+// Gets audio file duration
+violin1.addEventListener("canplaythrough", function() {
+    duration = violin1.duration;
+}, false);
+
+// getPosition
+// Returns elements left position relative to top-left of viewport
+function getPosition(el) {
+    return el.getBoundingClientRect().left;
+}
+ 
+ 
+ function secondsToHms(d) {
+    d = Number(d);
+    var h = Math.floor(d / 3600);
+    var m = Math.floor(d % 3600 / 60);
+    var s = Math.floor(d % 3600 % 60);
+
+    var hDisplay = h > 0 ? h + (h == 1 ? " : " : " : ") : "";
+    var mDisplay = m > 0 ? m + (m == 1 ? " : " : " : ") : "00 : ";
+    var sDisplay = s > 0 ? s + (s == 1 ? "" : "") : "00";
+    return hDisplay + mDisplay + sDisplay; 
+}
+</script>
