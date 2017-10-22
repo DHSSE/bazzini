@@ -68,34 +68,53 @@ background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAY
 <div class="container">
 <h1>Bazzini Quintet No. 1 (I)</h1>
 <audio controls id="violin1">
-    <source src="violin1.mp3" type="audio/mp3" />
+    <source src="violin1_compressed.mp3" type="audio/mp3" />
 </audio>
 <audio controls id="violin2" >
-    <source src="violin2.mp3" type="audio/mp3" />
+    <source src="violin2_compressed.mp3" type="audio/mp3" />
 </audio>
 <audio controls id="viola" >
-    <source src="viola.mp3" type="audio/mp3" />
+    <source src="viola_compressed.mp3" type="audio/mp3" />
 </audio>
 <audio controls id="cello1" >
-    <source src="cello1.mp3" type="audio/mp3" />
+    <source src="cello1_compressed.mp3" type="audio/mp3" />
 </audio>
 <audio controls id="cello2" >
-    <source src="cello2.mp3" type="audio/mp3" />
+    <source src="cello2_compressed.mp3" type="audio/mp3" />
 </audio>
  <div id="audioplayer">
- <button class="btn" onclick="play();" id="button1">Play</button>
+<button class="btn" onclick="play();" id="button1">Play</button>
  <div id="timeline">    
           <div id="playhead"></div><div id="timing"></div><div id="bar"></div>
   </div>
 </div> 
 </br></br>
 <div class="container container-fluid">
-<div class="row"><div class="col3">Violin 1 </div><div class="col6"><button class="btn" onclick="mute(1);" id="button2">Click to mute</button><br /></div></div>
-<div class="row"><div class="col3">Violin 2 </div><div class="col6"><button class="btn" onclick="mute(2);" id="button3">Click to mute</button><br /></div></div>
-<div class="row"><div class="col3">   Viola    </div><div class="col6"><button class="btn" onclick="mute(3);" id="button4">Click to mute</button><br /></div></div>
-<div class="row"><div class="col3">Cello 1 </div><div class="col6"><button class="btn" onclick="mute(4);" id="button5">Click to mute</button><br /></div></div>
-<div class="row"><div class="col3">Cello 2 </div><div class="col6"><button class="btn" onclick="mute(5);" id="button6">Click to mute</button><br /></div></div>
-</div>
+<fieldset>
+  <legend>Choose violin1s to play</legend>
+  <div>
+    <input type="checkbox" id="v1" name="v1" value="v1">
+    <label for="v1">Violin 1</label>
+  </div>
+  <div>
+    <input type="checkbox" id="v2" name="v2" value="v2">
+    <label for="v2">Violin 2</label>
+  </div>
+  <div>
+    <input type="checkbox" id="v" name="v" value="v">
+    <label for="v">Viola</label>
+  </div>
+  <div>
+    <input type="checkbox" id="c1" name="c1" value="c1">
+    <label for="c1">Cello 1</label>
+  </div>
+  <div>
+    <input type="checkbox" id="c2" name="c2" value="c2">
+    <label for="c2">Cello 2</label>
+  </div>  
+</fieldset> <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://static.bocoup.com/js/popcorn.min.js"></script>
+
 <script>
 
 var violin1 = document.getElementById('violin1');
@@ -175,7 +194,11 @@ var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
 button1.addEventListener("click", play);
 
 // timeupdate event listener
-violin1.addEventListener("timeupdate", timeUpdate, false);
+violin1.addEventListener("timeupdate", timeUpdate1, false);
+violin2.addEventListener("timeupdate", timeUpdate2, false);
+viola.addEventListener("timeupdate", timeUpdate3, false);
+cello1.addEventListener("timeupdate", timeUpdate4, false);
+cello2.addEventListener("timeupdate", timeUpdate5, false);
 
 // makes timeline clickable
 timeline.addEventListener("click", function(event) {
@@ -203,7 +226,11 @@ var onplayhead = false;
 function mouseDown() {
     onplayhead = true;
     window.addEventListener('mousemove', moveplayhead, true);
-    violin1.removeEventListener('timeupdate', timeUpdate, false);
+    violin1.removeEventListener('timeupdate', timeUpdate1, false);
+    violin2.removeEventListener('timeupdate', timeUpdate2, false);
+    viola.removeEventListener('timeupdate', timeUpdate3, false);
+    cello1.removeEventListener('timeupdate', timeUpdate4, false);
+    cello2.removeEventListener('timeupdate', timeUpdate5, false);    
 }
 
 // mouseUp EventListener
@@ -214,15 +241,15 @@ function mouseUp(event) {
         window.removeEventListener('mousemove', moveplayhead, true);
         // change current time
         violin1.currentTime = duration * clickPercent(event);
-        violin1.addEventListener('timeupdate', timeUpdate, false);
+        violin1.addEventListener('timeupdate', timeUpdate1, false);
         violin2.currentTime = duration * clickPercent(event);
-        violin2.addEventListener('timeupdate', timeUpdate, false);
+        violin2.addEventListener('timeupdate', timeUpdate2, false);
         viola.currentTime = duration * clickPercent(event);
-        viola.addEventListener('timeupdate', timeUpdate, false);
+        viola.addEventListener('timeupdate', timeUpdate3, false);
         cello1.currentTime = duration * clickPercent(event);
-        cello1.addEventListener('timeupdate', timeUpdate, false);
+        cello1.addEventListener('timeupdate', timeUpdate4, false);
         cello2.currentTime = duration * clickPercent(event);
-        cello2.addEventListener('timeupdate', timeUpdate, false);        
+        cello2.addEventListener('timeupdate', timeUpdate5, false);        
     }
     onplayhead = false;
 }
@@ -244,7 +271,7 @@ function moveplayhead(event) {
 
 // timeUpdate
 // Synchronizes playhead position with current point in audio
-function timeUpdate() {
+function timeUpdate1() {
     var playPercent = timelineWidth * (violin1.currentTime / duration);
     playhead.style.marginLeft = playPercent + "px";
     if (violin1.currentTime == duration) {
@@ -257,31 +284,105 @@ function timeUpdate() {
     if (violin1.currentTime<=187.1){bar.innerHTML="Bar "+Math.ceil((violin1.currentTime/eachbar1)-0.25)}
     else if (violin1.currentTime<=374.2){bar.innerHTML="Bar "+Math.ceil((violin1.currentTime-187.1)/eachbar1-0.25)}
     else {bar.innerHTML="Bar "+Math.ceil(((violin1.currentTime-374.2)/eachbar1)+141)}
-}
+update();
+    }
+function timeUpdate2() {
+    var playPercent = timelineWidth * (violin2.currentTime / duration);
+    playhead.style.marginLeft = playPercent + "px";
+    if (violin2.currentTime == duration) {
+        button1.className = "";
+        button1.className = "play";
+    }
+    timing.innerHTML=secondsToHms(violin2.currentTime)+ " / "+ secondsToHms(duration);
+    var eachbar1=(187.1/140.25)
+    var eachbar=((duration-374.2)/(482-140))
+    if (violin2.currentTime<=187.1){bar.innerHTML="Bar "+Math.ceil((violin2.currentTime/eachbar1)-0.25)}
+    else if (violin2.currentTime<=374.2){bar.innerHTML="Bar "+Math.ceil((violin2.currentTime-187.1)/eachbar1-0.25)}
+    else {bar.innerHTML="Bar "+Math.ceil(((violin2.currentTime-374.2)/eachbar1)+141)}
+update();}
+function timeUpdate3() {
+    var playPercent = timelineWidth * (viola.currentTime / duration);
+    playhead.style.marginLeft = playPercent + "px";
+    if (viola.currentTime == duration) {
+        button1.className = "";
+        button1.className = "play";
+    }
+    timing.innerHTML=secondsToHms(viola.currentTime)+ " / "+ secondsToHms(duration);
+    var eachbar1=(187.1/140.25)
+    var eachbar=((duration-374.2)/(482-140))
+    if (viola.currentTime<=187.1){bar.innerHTML="Bar "+Math.ceil((viola.currentTime/eachbar1)-0.25)}
+    else if (viola.currentTime<=374.2){bar.innerHTML="Bar "+Math.ceil((viola.currentTime-187.1)/eachbar1-0.25)}
+    else {bar.innerHTML="Bar "+Math.ceil(((viola.currentTime-374.2)/eachbar1)+141)}
+update();}
+function timeUpdate4() {
+    var playPercent = timelineWidth * (cello1.currentTime / duration);
+    playhead.style.marginLeft = playPercent + "px";
+    if (cello1.currentTime == duration) {
+        button1.className = "";
+        button1.className = "play";
+    }
+    timing.innerHTML=secondsToHms(cello1.currentTime)+ " / "+ secondsToHms(duration);
+    var eachbar1=(187.1/140.25)
+    var eachbar=((duration-374.2)/(482-140))
+    if (cello1.currentTime<=187.1){bar.innerHTML="Bar "+Math.ceil((cello1.currentTime/eachbar1)-0.25)}
+    else if (cello1.currentTime<=374.2){bar.innerHTML="Bar "+Math.ceil((cello1.currentTime-187.1)/eachbar1-0.25)}
+    else {bar.innerHTML="Bar "+Math.ceil(((cello1.currentTime-374.2)/eachbar1)+141)}
+update();}
+function timeUpdate5() {
+    var playPercent = timelineWidth * (cello2.currentTime / duration);
+    playhead.style.marginLeft = playPercent + "px";
+    if (cello2.currentTime == duration) {
+        button1.className = "";
+        button1.className = "play";
+    }
+    timing.innerHTML=secondsToHms(cello2.currentTime)+ " / "+ secondsToHms(duration);
+    var eachbar1=(187.1/140.25)
+    var eachbar=((duration-374.2)/(482-140))
+    if (cello2.currentTime<=187.1){bar.innerHTML="Bar "+Math.ceil((cello2.currentTime/eachbar1)-0.25)}
+    else if (cello2.currentTime<=374.2){bar.innerHTML="Bar "+Math.ceil((cello2.currentTime-187.1)/eachbar1-0.25)}
+    else {bar.innerHTML="Bar "+Math.ceil(((cello2.currentTime-374.2)/eachbar1)+141)}
+update();}
 
 
 
-
+var button1 = document.getElementById('button1');
 var isPlaying = false;
+var aplay=false;
+var bplay=false;
+var cplay=false;
+var dplay=false;
+var eplay=false;
+var videos = {
+    a: Popcorn("#violin1"),
+    b: Popcorn("#violin2"),
+    c: Popcorn("#viola"),
+    d: Popcorn("#cello1"),
+    e: Popcorn("#cello2"),    
+  }
 var play = function() {
     if(!isPlaying){
       button1.innerHTML = 'Pause';
 
       button1.className='pauseBtn btn';
-  	  violin1.play(); 
-	  violin2.play();
-	  viola.play();
-	  cello1.play();
-	  cello2.play();
+      if ($("#v1").is(':checked')){videos.a.play(); aplay=true;}else{aplay=false;}
+	if ($("#v2").is(':checked')){videos.b.play();bplay=true;}else{bplay=false;}
+	if ($("#v").is(':checked')){videos.c.play();cplay=true;}else{cplay=false;}
+	if ($("#c1").is(':checked')){videos.d.play();dplay=true;}else{dplay=false;}
+	if ($("#c2").is(':checked')){videos.e.play();eplay=true;}else{eplay=false;}
       isPlaying = true;
     } else {
       button1.innerHTML = 'Play';
       button1.className='playBtn btn';
-  	  violin1.pause(); 
-	  violin2.pause();
-	  viola.pause();
-	  cello1.pause();
-	  cello2.pause();
+ 	  videos.a.pause(); 
+	  videos.b.pause();
+	  videos.c.pause();
+	  videos.d.pause();
+	  videos.e.pause();
+          aplay=false;
+          bplay=false;
+          cplay=false;
+          dplay=false;
+          eplay=false;
       isPlaying = false;
     }
 }
@@ -310,4 +411,62 @@ function getPosition(el) {
     var sDisplay = s > 0 ? s + (s == 1 ? "" : "") : "00";
     return hDisplay + mDisplay + sDisplay; 
 }
+
+var update=function(){
+if(aplay===false){
+if(bplay===false){
+if(cplay===false){
+if(dplay===false){
+      violin1.currentTime=cello2.currentTime
+}else{violin1.currentTime=cello1.currentTime}
+}else{violin1.currentTime=viola.currentTime}
+}else{violin1.currentTime=violin2.currentTime}
+}
+if(bplay===false){
+if(dplay===false){
+if(cplay===false){
+if(eplay===false){
+      violin2.currentTime=violin1.currentTime
+}else{violin2.currentTime=cello2.currentTime}
+}else{violin2.currentTime=viola.currentTime}
+}else{violin2.currentTime=cello1.currentTime}
+}
+
+if(cplay===false){
+if(bplay===false){
+if(dplay===false){
+if(eplay===false){
+      viola.currentTime=violin1.currentTime
+}else{viola.currentTime=cello2.currentTime}
+}else{viola.currentTime=cello1.currentTime}
+}else{viola.currentTime=violin2.currentTime}
+}
+
+if(dplay===false){
+if(bplay===false){
+if(cplay===false){
+if(eplay===false){
+      cello1.currentTime=violin1.currentTime
+}else{cello1.currentTime=cello2.currentTime}
+}else{cello1.currentTime=viola.currentTime}
+}else{cello1.currentTime=violin2.currentTime}
+}
+
+
+if(eplay===false){
+if(bplay===false){
+if(cplay===false){
+if(dplay===false){
+      cello2.currentTime=violin1.currentTime
+}else{cello2.currentTime=cello1.currentTime}
+}else{cello2.currentTime=viola.currentTime}
+}else{cello2.currentTime=violin2.currentTime}
+}
+
+
+
+
+}
+
+
 </script>
