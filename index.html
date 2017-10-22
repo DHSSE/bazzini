@@ -256,7 +256,7 @@ function timeUpdate() {
     var eachbar=((duration-374.2)/(482-140))
     if (violin1.currentTime<=187.1){bar.innerHTML="Bar "+Math.ceil((violin1.currentTime/eachbar1)-0.25)}
     else if (violin1.currentTime<=374.2){bar.innerHTML="Bar "+Math.ceil((violin1.currentTime-187.1)/eachbar1-0.25)}
-    else {bar.innerHTML="Bar "+Math.ceil(((violin1.currentTime-374.2)/eachbar1))+141}
+    else {bar.innerHTML="Bar "+Math.ceil(((violin1.currentTime-374.2)/eachbar1)+141)}
 }
 
 
